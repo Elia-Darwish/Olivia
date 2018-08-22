@@ -1,0 +1,384 @@
+
+html {
+    overflow-x: auto;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.main-container {
+    width: 100vw;
+    max-width:100%;
+    overflow-x: hidden;
+
+    header {
+        left: 0;
+        right: 0;
+        top: 0;
+        z-index: 1;
+
+        .navbar-brand {
+            width: 6rem;
+        }
+    }
+
+    .hero {
+        height: 100vh;
+        overflow: hidden;
+
+        &-video {
+            min-width: 100%;
+            min-height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -2;
+
+            &-overlay {
+                background-color: #401b7a;
+                opacity: .3;
+                z-index: -1;
+            }
+        }
+
+        &-logo {
+            width: 16rem;
+            border-bottom: 1px solid currentColor;
+            opacity: .8;
+            &::before {
+                content: "";
+                position: absolute;
+                width: 40%;
+                height: 1px;
+                left: 0;
+                bottom: 4px;
+                background-color: currentColor;
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                width: 40%;
+                height: 1px;
+                right: 0;
+                bottom: 4px;
+                background-color: currentColor;
+            }
+        }
+
+        &-text {
+            letter-spacing: .1rem;
+            opacity: .7;
+        }
+
+        &-info {
+            bottom: 0;
+            left: 0;
+            height: 10vmin;
+            opacity: .8;
+            overflow: hidden;
+
+            * {
+                opacity: .8;
+            }
+        }
+    }
+
+
+    .slide-sec {
+        height: 70vmin;
+        overflow: hidden;
+
+        &-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #401b7a;
+            opacity: .3;
+            z-index: 1;
+        }
+
+        .carousel-indicators,
+        .carousel-control-prev,
+        .carousel-control-next {
+            z-index: 2;
+        }
+
+        .carousel,
+        .carousel-inner,
+        .carousel-item {
+            height: 70vmin;
+            
+        }
+
+
+        img {
+            height: 70vmin;
+            object-fit: cover;
+            opacity: .9;
+        }
+
+        h3 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -65%);
+            z-index: 2;
+            font-family: 'Pacifico', cursive;
+            font-size: 7rem;
+            opacity: .6;
+        }
+    }
+
+
+
+    .news {
+        background: {
+            image: url(../img/background.jpeg);
+            size: cover;
+            position: center;
+            repeat: no-repeat;
+            attachment: fixed;
+        }
+
+        &:before, &:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background-color: #ffffff;
+        }
+
+        &:before {
+            top: 0;
+        }
+
+        &:after {
+            bottom: 0;
+        }
+
+        &-title {
+            opacity: .3;
+            font-weight: 800;
+        }
+
+        .card {
+            height: 100%;
+
+            img {
+                height: 50% !important;
+                object-fit: cover;
+            }
+
+        }
+        
+    }
+
+
+
+    .showcase {
+        height: 70vmin;
+        overflow: hidden;
+        opacity: .9;
+
+
+        &:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 10px;
+            background-color: #ffffff;
+            z-index: 1;
+        }
+
+        
+        &-video {
+            min-width: 100%;
+            min-height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -2;
+
+            &-overlay {
+                background-color: #401b7a;
+                opacity: .3;
+                z-index: -1;
+            }
+        }
+
+        &-title {
+            font-family: 'Pacifico', cursive;
+            opacity: .3;
+        }
+
+    }
+
+
+    .menu {
+        background: {
+            image: url(../img/background.jpeg);
+            repeat: no-repeat;
+            size: cover;
+            position: center;
+            attachment: fixed;
+        }
+        
+
+        .card {
+            height: 100%;
+            border: none;
+            border-radius: 5px;
+            font-family: 'Pacifico', cursive;
+            background-color: rgba(255, 255, 255, .4);
+
+
+
+            &-title {
+                opacity: .8;
+                font-size: 1.5rem;
+            }
+
+            &-text {
+                font-size: 1.8rem;
+                font-family: 'Roboto', sans-serif;
+                font-style: italic;
+                opacity: .5;
+                background-color: rgba(0, 0, 0, .1);;
+            }
+
+            img {
+                height: 50% !important;
+                width: 50% !important;
+                object-fit: contain;
+
+            }
+
+        }
+        
+    }
+}
+
+
+
+
+
+.footer {
+    background-color: #24252f;
+
+    &-logo {
+        width: 10rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+
+    h4 {
+        font-size: 1rem;
+        opacity: .5;
+    }
+
+    p {
+        margin: 0;
+        font-size: .9rem;
+    }
+
+    &-copyright {
+        background-color: #282934;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        opacity: .8;
+    }
+
+    small {
+        opacity: .5;
+    }
+
+}
+
+
+
+@media (max-width: 768px) {
+
+    .slide-sec {
+        height: 60vmin !important;
+    
+
+        .carousel,
+        .carousel-inner,
+        .carousel-item {
+            height: 60vmin !important;
+            
+        }
+
+        h3 {
+            font-size: 4rem !important;
+        }
+    
+    }
+
+
+
+    .showcase {
+        height: 60vmin !important;
+
+        &-title {
+            font-size: 4rem !important;
+        }
+
+    }
+
+}
+
+
+
+
+
+@media (max-width: 500px) {
+
+    .slide-sec {
+        height: 50vmin !important;
+    
+
+        .carousel,
+        .carousel-inner,
+        .carousel-item {
+            height: 50vmin !important;
+            
+        }
+
+        h3 {
+            font-size: 2rem !important;
+        }
+    
+    }
+
+
+
+    .showcase {
+        height: 50vmin !important;
+
+        &-title {
+            font-size: 2rem !important;
+        }
+
+    }
+
+
+
+    .hero-info {
+        
+        img {
+            max-height: 100%;
+            max-width: 30px;
+            
+        }
+    }
+
+}

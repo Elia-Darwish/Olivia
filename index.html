@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Pacifico|Roboto:300,400,500,700" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/main.css">
+
+    <title>Olivia</title>
+</head>
+
+<body>
+
+    <div class="modal fade" id="reservation" tabindex="-1" role="dialog" aria-labelledby="reservation" aria-hidden="true">
+
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Reservation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="name" class="col-form-label">Name:</label>
+                            <input type="text" class="form-control" id="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="col-form-label">Phone:</label>
+                            <input type="text" class="form-control" id="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="col-form-label">Email:</label>
+                            <input type="text" class="form-control" id="email">
+                        </div>
+                        <div class="form-row">
+                            <div class="col form-group">
+                                <label for="date" class="col-form-label">Date:</label>
+                                <input type="date" class="form-control" id="date">
+                            </div>
+                            <div class="col form-group">
+                                <label for="time" class="col-form-label">Time:</label>
+                                <input type="time" class="form-control" id="time">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="time" class="col-form-label">Number of Attendees:</label>
+                            <select class="form-control form-control-sm">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                                <option>10+ (specify in comment)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="comment" class="col-form-label">Comment/Additional Request:</label>
+                            <textarea class="form-control" id="comment"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Reserve</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="main-container text-light">
+
+
+        <header class="position-absolute">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-dark">
+                    <a class="navbar-brand mr-0" href="#">
+                        <svg style="isolation:isolate" viewBox="0 0 300 150" fill="currentColor">
+                            <defs>
+                                <clipPath id="logo">
+                                    <path d="M0 0h300v150H0z" />
+                                </clipPath>
+                            </defs>
+                            <g clip-path="url(#logo)">
+                                <path fill-rule="evenodd" d="M134.7 105.2q1.3 0 2.05 1.2.75 1.2.75 3.3 0 4-1.9 6.2-4.3 5.3-9.35 8.7-5.05 3.4-11.45 3.4-8.8 0-13.05-8T97.5 99.3q0-12.2 3.15-27.8 3.15-15.6 9.3-26.8 6.15-11.2 14.65-11.2 4.8 0 7.55 4.45t2.75 12.75q0 11.9-6.6 27.6-6.6 15.7-17.9 31.1.7 4.1 2.3 5.85 1.6 1.75 4.2 1.75 4.1 0 7.2-2.35 3.1-2.35 7.9-8.05 1.2-1.4 2.7-1.4zm-12.3-61.8q-2.3 0-5.2 8.3-2.9 8.3-5.1 20.6-2.2 12.3-2.4 23.6 7.1-11.7 11.3-23.45 4.2-11.75 4.2-21.45 0-7.6-2.8-7.6z"
+                                />
+                                <path d="M142.5 74.3q-4.2 0-6.3-1.95-2.1-1.95-2.1-5.45t2.75-5.85q2.75-2.35 6.85-2.35 3.7 0 6 1.8t2.3 5.1q0 4-2.6 6.35-2.6 2.35-6.9 2.35zM141.7 128q-6.5 0-9.45-4.6-2.95-4.6-2.95-12.2 0-4.5 1.15-11.55 1.15-7.05 2.95-13.15.9-3.2 2.4-4.4 1.5-1.2 4.8-1.2 5.1 0 5.1 3.4 0 2.5-1.9 11.6-2.4 11-2.4 14.9 0 3 .8 4.6.8 1.6 2.7 1.6 1.8 0 4.5-2.5t7.2-7.9q1.2-1.4 2.7-1.4 1.3 0 2.05 1.2.75 1.2.75 3.3 0 4-1.9 6.2-9.9 12.1-18.5 12.1z"
+                                />
+                                <path d="M202.5 97.1q.3-.1 1-.1 1.5 0 2.3 1 .8 1 .8 2.7 0 3.1-1.2 4.85-1.2 1.75-3.6 2.55-3.6 1.5-8.8 1.5-4.4 0-8.3-1.2-2.9 4.7-6.4 9.7-4 5.7-6.9 7.8-2.9 2.1-6.6 2.1-4.1 0-6.45-3.2-2.35-3.2-2.95-10.1-1.2-14-1.2-24.5v-3.5q.1-3.3 1.8-4.6 1.7-1.3 5.1-1.3 2.6 0 3.85 1.15t1.25 3.85q0 11.5 1.4 29.9 6-8.9 9-14.2-1.5-2.9-1.5-6.9 0-3.4 1.5-6.6 1.5-3.2 4.1-5.2 2.6-2 5.9-2 2.9 0 4.7 2.05 1.8 2.05 1.8 5.95 0 4.5-2.4 10.3 2.8-.2 9.1-1.5l2.7-.5zM208 74.3q-4.2 0-6.3-1.95-2.1-1.95-2.1-5.45t2.75-5.85q2.75-2.35 6.85-2.35 3.7 0 6 1.8t2.3 5.1q0 4-2.6 6.35-2.6 2.35-6.9 2.35z"
+                                />
+                                <path d="M206.2 128q-6.5 0-9.45-4.6-2.95-4.6-2.95-12.2 0-4.5 1.15-11.55 1.15-7.05 2.95-13.15.9-3.2 2.4-4.4 1.5-1.2 4.8-1.2 5.1 0 5.1 3.4 0 2.5-1.9 11.6-2.4 11-2.4 14.9 0 3 .8 4.6.8 1.6 2.7 1.6 1.8 0 4.5-2.5-.3-2.5 4.2-7.9 1.2-1.4 2.7-1.4 1.3 0 2.05 1.2.75 1.2.75 3.3 0 4-1.9 6.2-6.9 12.1-15.5 12.1z"
+                                />
+                                <path fill-rule="evenodd" d="M225.8 128q-6.2 0-9.9-4.5t-3.7-11.8q0-8 3.7-15.15t9.85-11.5q6.15-4.35 13.05-4.35 13.821.641 13.5 7 0 2.1-1.5 10-2.3 11.5-2.3 16 0 1.5.75 2.4.75.9 1.95.9 1.9 0 4.6-2.45 2.7-2.45 7.3-7.95 1.2-1.4 2.7-1.4 1.3 0 2.05 1.2.75 1.2.75 3.3 0 4-1.9 6.2-4.1 5.1-8.7 8.6t-8.9 3.5q-3.3 0-6.05-2.25t-4.15-6.15q-5.2 8.4-13.1 8.4zm3.6-10.1q2.2 0 4.2-2.6t2.9-6.9l3.7-18.4q-4.2.1-7.75 3.15t-5.65 8.05q-2.1 5-2.1 10.6 0 3.1 1.25 4.6 1.25 1.5 3.45 1.5z"
+                                />
+                                <g fill-rule="evenodd">
+                                    <path d="M60.31 128q-6.739-.971-12.152-4-4.578-2.701-7.758-8.569-3-5.224-3-13.401-.016-10.509 4.186-19.291 5.65-9.773 10.814-13.553 6.85-5.77 15.633-5.77 6.738 0 12.152 3.028 5.414 3.029 8.594 8.897 3.18 5.868 3.18 14.045 0 11.508-4.203 20.291-4.202 8.783-11.432 13.553Q69.093 128 60.31 128zm.757-8.934q5.906 0 10.411-3.635 4.505-3.634 6.928-10.107 2.423-6.474 2.423-14.651 0-9.01-3.786-13.667-3.786-4.656-9.767-4.656-5.318.511-9.297 4.596-4.1 2.89-7.579 9.054-3 6.49-3 14.743.114 9.01 3.9 13.666 3.786 4.657 9.767 4.657z"
+                                    />
+                                    <path d="M77.941 59.854q2.478-6.688 1.298-14.383C76.181 25.537 66.557 21.996 66.519 22c-.323.037-1.968 7.944-.909 17.414q1.17 7.974 4.543 14.386.297.564.588 1.103-1.616-1.487-3.55-3.114-6.552-5.509-15.461-8.869c-10.665-3.609-20.206-3.702-20.33-3.339-.014.043 1.649 12.044 23.888 20.597q10.022 3.854 19.719 1.607l.036.048c-.148 1.378-.283 2.645-.347 3.324l2.347.485c.004-.079.498-3.072.898-5.788zM52.4 51.789c-4.577-2.215-10.14-5.633-16-8.869q5.757 7.069 16.653 12.064c6.437 2.952 13.4 4.793 16.329 4.87q.357.329-16.982-8.065zm21.067-9.596c.909 4.012 1.686 8.868 2.857 14.57q.139-10.51-1.281-15.87c-.662-3.3-5.177-12.479-5.661-12.893q1.661 3.933 4.085 14.193z"
+                                    />
+                                </g>
+                            </g>
+                        </svg>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mx-auto">
+                            <li class="nav-item mx-md-3">
+                                <a class="nav-link" href="#">Home</a>
+                            </li>
+                            <li class="nav-item mx-md-3">
+                                <a class="nav-link" href="#contact">About</a>
+                            </li>
+                            <li class="nav-item mx-md-3">
+                                <a class="nav-link" href="#menu">Menu</a>
+                            </li>
+                            <li class="nav-item mx-md-3">
+                                <a class="nav-link" href="#news">News</a>
+                            </li>
+                            <li class="nav-item mx-md-3">
+                                <a class="nav-link" href="#contact">Contact</a>
+                            </li>
+                        </ul>
+                        <form class="form-inline my-2 my-lg-0">
+                            <button class="btn btn-outline-light my-2 my-sm-0" type="button" data-toggle="modal" data-target="#reservation">Reservations</button>
+                        </form>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+
+
+
+
+
+        <div class="hero position-relative w-100 d-flex flex-column justify-content-center align-items-center">
+
+            <video muted loop autoplay class="hero-video position-absolute">
+                <source src="./assets/vid/background-video.webm">
+                <source src="./assets/vid/background-video.mp4">
+            </video>
+
+            <div class="hero-video-overlay position-absolute w-100 h-100"></div>
+
+            <div class="hero-logo mb-4 pb-2 position-relative">
+                <svg style="isolation:isolate" viewBox="0 0 300 150" fill="currentColor">
+                    <defs>
+                        <clipPath id="logo">
+                            <path d="M0 0h300v150H0z" />
+                        </clipPath>
+                    </defs>
+                    <g clip-path="url(#logo)">
+                        <path fill-rule="evenodd" d="M134.7 105.2q1.3 0 2.05 1.2.75 1.2.75 3.3 0 4-1.9 6.2-4.3 5.3-9.35 8.7-5.05 3.4-11.45 3.4-8.8 0-13.05-8T97.5 99.3q0-12.2 3.15-27.8 3.15-15.6 9.3-26.8 6.15-11.2 14.65-11.2 4.8 0 7.55 4.45t2.75 12.75q0 11.9-6.6 27.6-6.6 15.7-17.9 31.1.7 4.1 2.3 5.85 1.6 1.75 4.2 1.75 4.1 0 7.2-2.35 3.1-2.35 7.9-8.05 1.2-1.4 2.7-1.4zm-12.3-61.8q-2.3 0-5.2 8.3-2.9 8.3-5.1 20.6-2.2 12.3-2.4 23.6 7.1-11.7 11.3-23.45 4.2-11.75 4.2-21.45 0-7.6-2.8-7.6z"
+                        />
+                        <path d="M142.5 74.3q-4.2 0-6.3-1.95-2.1-1.95-2.1-5.45t2.75-5.85q2.75-2.35 6.85-2.35 3.7 0 6 1.8t2.3 5.1q0 4-2.6 6.35-2.6 2.35-6.9 2.35zM141.7 128q-6.5 0-9.45-4.6-2.95-4.6-2.95-12.2 0-4.5 1.15-11.55 1.15-7.05 2.95-13.15.9-3.2 2.4-4.4 1.5-1.2 4.8-1.2 5.1 0 5.1 3.4 0 2.5-1.9 11.6-2.4 11-2.4 14.9 0 3 .8 4.6.8 1.6 2.7 1.6 1.8 0 4.5-2.5t7.2-7.9q1.2-1.4 2.7-1.4 1.3 0 2.05 1.2.75 1.2.75 3.3 0 4-1.9 6.2-9.9 12.1-18.5 12.1z"
+                        />
+                        <path d="M202.5 97.1q.3-.1 1-.1 1.5 0 2.3 1 .8 1 .8 2.7 0 3.1-1.2 4.85-1.2 1.75-3.6 2.55-3.6 1.5-8.8 1.5-4.4 0-8.3-1.2-2.9 4.7-6.4 9.7-4 5.7-6.9 7.8-2.9 2.1-6.6 2.1-4.1 0-6.45-3.2-2.35-3.2-2.95-10.1-1.2-14-1.2-24.5v-3.5q.1-3.3 1.8-4.6 1.7-1.3 5.1-1.3 2.6 0 3.85 1.15t1.25 3.85q0 11.5 1.4 29.9 6-8.9 9-14.2-1.5-2.9-1.5-6.9 0-3.4 1.5-6.6 1.5-3.2 4.1-5.2 2.6-2 5.9-2 2.9 0 4.7 2.05 1.8 2.05 1.8 5.95 0 4.5-2.4 10.3 2.8-.2 9.1-1.5l2.7-.5zM208 74.3q-4.2 0-6.3-1.95-2.1-1.95-2.1-5.45t2.75-5.85q2.75-2.35 6.85-2.35 3.7 0 6 1.8t2.3 5.1q0 4-2.6 6.35-2.6 2.35-6.9 2.35z"
+                        />
+                        <path d="M206.2 128q-6.5 0-9.45-4.6-2.95-4.6-2.95-12.2 0-4.5 1.15-11.55 1.15-7.05 2.95-13.15.9-3.2 2.4-4.4 1.5-1.2 4.8-1.2 5.1 0 5.1 3.4 0 2.5-1.9 11.6-2.4 11-2.4 14.9 0 3 .8 4.6.8 1.6 2.7 1.6 1.8 0 4.5-2.5-.3-2.5 4.2-7.9 1.2-1.4 2.7-1.4 1.3 0 2.05 1.2.75 1.2.75 3.3 0 4-1.9 6.2-6.9 12.1-15.5 12.1z"
+                        />
+                        <path fill-rule="evenodd" d="M225.8 128q-6.2 0-9.9-4.5t-3.7-11.8q0-8 3.7-15.15t9.85-11.5q6.15-4.35 13.05-4.35 13.821.641 13.5 7 0 2.1-1.5 10-2.3 11.5-2.3 16 0 1.5.75 2.4.75.9 1.95.9 1.9 0 4.6-2.45 2.7-2.45 7.3-7.95 1.2-1.4 2.7-1.4 1.3 0 2.05 1.2.75 1.2.75 3.3 0 4-1.9 6.2-4.1 5.1-8.7 8.6t-8.9 3.5q-3.3 0-6.05-2.25t-4.15-6.15q-5.2 8.4-13.1 8.4zm3.6-10.1q2.2 0 4.2-2.6t2.9-6.9l3.7-18.4q-4.2.1-7.75 3.15t-5.65 8.05q-2.1 5-2.1 10.6 0 3.1 1.25 4.6 1.25 1.5 3.45 1.5z"
+                        />
+                        <g fill-rule="evenodd">
+                            <path d="M60.31 128q-6.739-.971-12.152-4-4.578-2.701-7.758-8.569-3-5.224-3-13.401-.016-10.509 4.186-19.291 5.65-9.773 10.814-13.553 6.85-5.77 15.633-5.77 6.738 0 12.152 3.028 5.414 3.029 8.594 8.897 3.18 5.868 3.18 14.045 0 11.508-4.203 20.291-4.202 8.783-11.432 13.553Q69.093 128 60.31 128zm.757-8.934q5.906 0 10.411-3.635 4.505-3.634 6.928-10.107 2.423-6.474 2.423-14.651 0-9.01-3.786-13.667-3.786-4.656-9.767-4.656-5.318.511-9.297 4.596-4.1 2.89-7.579 9.054-3 6.49-3 14.743.114 9.01 3.9 13.666 3.786 4.657 9.767 4.657z"
+                            />
+                            <path d="M77.941 59.854q2.478-6.688 1.298-14.383C76.181 25.537 66.557 21.996 66.519 22c-.323.037-1.968 7.944-.909 17.414q1.17 7.974 4.543 14.386.297.564.588 1.103-1.616-1.487-3.55-3.114-6.552-5.509-15.461-8.869c-10.665-3.609-20.206-3.702-20.33-3.339-.014.043 1.649 12.044 23.888 20.597q10.022 3.854 19.719 1.607l.036.048c-.148 1.378-.283 2.645-.347 3.324l2.347.485c.004-.079.498-3.072.898-5.788zM52.4 51.789c-4.577-2.215-10.14-5.633-16-8.869q5.757 7.069 16.653 12.064c6.437 2.952 13.4 4.793 16.329 4.87q.357.329-16.982-8.065zm21.067-9.596c.909 4.012 1.686 8.868 2.857 14.57q.139-10.51-1.281-15.87c-.662-3.3-5.177-12.479-5.661-12.893q1.661 3.933 4.085 14.193z"
+                            />
+                        </g>
+                    </g>
+                </svg>
+            </div>
+
+            <p class="hero-text text-center p-3 p-lg-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, odio?</p>
+
+            <a href="#" class="btn btn-outline-light text-uppercase" data-toggle="modal" data-target="#reservation">book a table</a>
+
+            <div class="hero-info position-absolute w-100 bg-light">
+                <ul class=" w-100 h-100 m-0 p-0 d-flex justify-content-center align-items-center">
+                    <li class="mx-3 mx-lg-5">
+                        <img src="assets/img/aw-1.jpg" alt="Gourmet" title="Gourmet">
+                    </li>
+                    <li class="mx-3 mx-lg-5">
+                        <img src="assets/img/aw-2.jpg" alt="Good Food Guide" title="Good Food Guide">
+                    </li>
+                    <li class="mx-3 mx-lg-5">
+                        <img src="assets/img/aw-3.jpg" alt="Financial Review" title="Financial Review">
+                    </li>
+                    <li class="mx-3 mx-lg-5">
+                        <img src="assets/img/aw-4.jpg" alt="The Australian" title="The Australian">
+                    </li>
+                    <li class="mx-3 mx-lg-5">
+                        <img src="assets/img/aw-5.jpg" alt="50best" title="50best">
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+
+
+        <main>
+
+            <section class="slide-sec position-relative">
+
+                <div class="slide-sec-overlay"></div>
+
+                <div id="carouselIndicators" class="carousel slide carousel-fade" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselIndicators" data-slide-to="2"></li>
+                        <li data-target="#carouselIndicators" data-slide-to="3"></li>
+                        <li data-target="#carouselIndicators" data-slide-to="4"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" src="./assets/img/slide-1.jpg" alt="First slide">
+                            <h3>Strolghino</h3>
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="./assets/img/slide-2.jpeg" alt="Second slide">
+                            <h3>Prosciutto</h3>
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="./assets/img/slide-3.jpeg" alt="Third slide">
+                            <h3>Tortano</h3>
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="./assets/img/slide-4.jpeg" alt="Third slide">
+                            <h3>Pinzimonio</h3>
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="./assets/img/slide-5.jpg" alt="Third slide">
+                            <h3>Culatello</h3>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+
+            </section>
+
+
+            <section id="news" class="news position-relative py-5 
+                            d-flex flex-column justify-content-center align-items-center">
+
+                <div class="container text-center">
+                    <h2 class="news-title text-dark text-uppercase mb-5">latest news</h2>
+
+                    <div class="row text-dark mb-5">
+
+                        <div class="col-12 col-md-6 col-lg-3 pb-lg-0 mb-5">
+                            <div class="card pb-4">
+                                <img class="card-img-top" src="./assets/img/card-1.jpeg" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">title treatment</h5>
+                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                    <a href="#" class="btn btn-sm btn-outline-secondary">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3 pb-lg-0 mb-5">
+                            <div class="card pb-4">
+                                <img class="card-img-top" src="./assets/img/card-2.jpg" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">title treatment</h5>
+                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                    <a href="#" class="btn btn-sm btn-outline-secondary">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3 pb-lg-0 mb-5">
+                            <div class="card pb-4">
+                                <img class="card-img-top" src="./assets/img/card-3.jpeg" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">title treatment</h5>
+                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                    <a href="#" class="btn btn-sm btn-outline-secondary">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3 pb-lg-0 mb-5">
+                            <div class="card pb-4">
+                                <img class="card-img-top" src="./assets/img/card-4.jpeg" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">title treatment</h5>
+                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                    <a href="#" class="btn btn-sm btn-outline-secondary">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </section>
+
+
+
+            <section class="showcase position-relative d-flex justify-content-center align-items-center">
+                <video muted loop autoplay class="showcase-video position-absolute">
+                    <source src="./assets/vid/pizza.webm">
+                    <source src="./assets/vid/pizza.mp4">
+                </video>
+
+                <div class="showcase-video-overlay position-absolute w-100 h-100"></div>
+
+                <h2 class="showcase-title display-2 text-capitalize">wood fired pizza</h2>
+
+            </section>
+
+
+            <section id="menu" class="menu py-5 
+                            d-flex flex-column justify-content-center align-items-center">
+
+
+                <div class="container">
+                    <div class="row text-center text-dark mt-5">
+
+                        <div class="col-12 col-md-6 col-lg-3 pb-5 pb-lg-0 px-4">
+                            <div class="card py-3 mx-2 pb-4">
+                                <img class="card-img-top mx-auto" src="./assets/img/menu-8.png" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">Marinara</h5>
+                                    <p class="card-text mt-3">8 €</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3 pb-5 pb-lg-0 px-4">
+                            <div class="card py-3 mx-2 pb-4">
+                                <img class="card-img-top mx-auto" src="./assets/img/menu-5.png" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">Pugliese</h5>
+                                    <p class="card-text mt-3">9 €</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3 pb-5 pb-lg-0 px-4">
+                            <div class="card py-3 mx-2 pb-4">
+                                <img class="card-img-top mx-auto" src="./assets/img/menu-6.png" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">Veronese</h5>
+                                    <p class="card-text mt-3">13 €</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3 pb-5 pb-lg-0 px-4">
+                            <div class="card py-3 mx-2 pb-4">
+                                <img class="card-img-top mx-auto" src="./assets/img/menu-7.png" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">Capricciosa</h5>
+                                    <p class="card-text mt-3">10 €</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="row text-center text-dark my-5">
+
+                        <div class="col-12 col-md-6 col-lg-3 pb-5 pb-lg-0 px-4">
+                            <div class="card py-3 mx-2 pb-4">
+                                <img class="card-img-top mx-auto" src="./assets/img/menu-1.png" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">Marinara</h5>
+                                    <p class="card-text mt-3">12 €</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3 pb-5 pb-lg-0 px-4">
+                            <div class="card py-3 mx-2 pb-4">
+                                <img class="card-img-top mx-auto" src="./assets/img/menu-2.png" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">Pugliese</h5>
+                                    <p class="card-text mt-3">7 €</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3 pb-5 pb-lg-0 px-4">
+                            <div class="card py-3 mx-2 pb-4">
+                                <img class="card-img-top mx-auto" src="./assets/img/menu-3.png" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">Veronese</h5>
+                                    <p class="card-text mt-3">13 €</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3 pb-5 pb-lg-0 px-4">
+                            <div class="card py-3 mx-2 pb-4">
+                                <img class="card-img-top mx-auto" src="./assets/img/menu-4.png" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">Capricciosa</h5>
+                                    <p class="card-text mt-3">15 €</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </section>
+
+        </main>
+
+        <footer id="contact" class="footer py-5 position-relative">
+
+            <div class="container">
+
+                <div class="footer-logo mx-auto mb-5">
+                    <svg style="isolation:isolate" viewBox="0 0 300 150" fill="currentColor">
+                        <defs>
+                            <clipPath id="logo">
+                                <path d="M0 0h300v150H0z" />
+                            </clipPath>
+                        </defs>
+                        <g clip-path="url(#logo)">
+                            <path fill-rule="evenodd" d="M134.7 105.2q1.3 0 2.05 1.2.75 1.2.75 3.3 0 4-1.9 6.2-4.3 5.3-9.35 8.7-5.05 3.4-11.45 3.4-8.8 0-13.05-8T97.5 99.3q0-12.2 3.15-27.8 3.15-15.6 9.3-26.8 6.15-11.2 14.65-11.2 4.8 0 7.55 4.45t2.75 12.75q0 11.9-6.6 27.6-6.6 15.7-17.9 31.1.7 4.1 2.3 5.85 1.6 1.75 4.2 1.75 4.1 0 7.2-2.35 3.1-2.35 7.9-8.05 1.2-1.4 2.7-1.4zm-12.3-61.8q-2.3 0-5.2 8.3-2.9 8.3-5.1 20.6-2.2 12.3-2.4 23.6 7.1-11.7 11.3-23.45 4.2-11.75 4.2-21.45 0-7.6-2.8-7.6z"
+                            />
+                            <path d="M142.5 74.3q-4.2 0-6.3-1.95-2.1-1.95-2.1-5.45t2.75-5.85q2.75-2.35 6.85-2.35 3.7 0 6 1.8t2.3 5.1q0 4-2.6 6.35-2.6 2.35-6.9 2.35zM141.7 128q-6.5 0-9.45-4.6-2.95-4.6-2.95-12.2 0-4.5 1.15-11.55 1.15-7.05 2.95-13.15.9-3.2 2.4-4.4 1.5-1.2 4.8-1.2 5.1 0 5.1 3.4 0 2.5-1.9 11.6-2.4 11-2.4 14.9 0 3 .8 4.6.8 1.6 2.7 1.6 1.8 0 4.5-2.5t7.2-7.9q1.2-1.4 2.7-1.4 1.3 0 2.05 1.2.75 1.2.75 3.3 0 4-1.9 6.2-9.9 12.1-18.5 12.1z"
+                            />
+                            <path d="M202.5 97.1q.3-.1 1-.1 1.5 0 2.3 1 .8 1 .8 2.7 0 3.1-1.2 4.85-1.2 1.75-3.6 2.55-3.6 1.5-8.8 1.5-4.4 0-8.3-1.2-2.9 4.7-6.4 9.7-4 5.7-6.9 7.8-2.9 2.1-6.6 2.1-4.1 0-6.45-3.2-2.35-3.2-2.95-10.1-1.2-14-1.2-24.5v-3.5q.1-3.3 1.8-4.6 1.7-1.3 5.1-1.3 2.6 0 3.85 1.15t1.25 3.85q0 11.5 1.4 29.9 6-8.9 9-14.2-1.5-2.9-1.5-6.9 0-3.4 1.5-6.6 1.5-3.2 4.1-5.2 2.6-2 5.9-2 2.9 0 4.7 2.05 1.8 2.05 1.8 5.95 0 4.5-2.4 10.3 2.8-.2 9.1-1.5l2.7-.5zM208 74.3q-4.2 0-6.3-1.95-2.1-1.95-2.1-5.45t2.75-5.85q2.75-2.35 6.85-2.35 3.7 0 6 1.8t2.3 5.1q0 4-2.6 6.35-2.6 2.35-6.9 2.35z"
+                            />
+                            <path d="M206.2 128q-6.5 0-9.45-4.6-2.95-4.6-2.95-12.2 0-4.5 1.15-11.55 1.15-7.05 2.95-13.15.9-3.2 2.4-4.4 1.5-1.2 4.8-1.2 5.1 0 5.1 3.4 0 2.5-1.9 11.6-2.4 11-2.4 14.9 0 3 .8 4.6.8 1.6 2.7 1.6 1.8 0 4.5-2.5-.3-2.5 4.2-7.9 1.2-1.4 2.7-1.4 1.3 0 2.05 1.2.75 1.2.75 3.3 0 4-1.9 6.2-6.9 12.1-15.5 12.1z"
+                            />
+                            <path fill-rule="evenodd" d="M225.8 128q-6.2 0-9.9-4.5t-3.7-11.8q0-8 3.7-15.15t9.85-11.5q6.15-4.35 13.05-4.35 13.821.641 13.5 7 0 2.1-1.5 10-2.3 11.5-2.3 16 0 1.5.75 2.4.75.9 1.95.9 1.9 0 4.6-2.45 2.7-2.45 7.3-7.95 1.2-1.4 2.7-1.4 1.3 0 2.05 1.2.75 1.2.75 3.3 0 4-1.9 6.2-4.1 5.1-8.7 8.6t-8.9 3.5q-3.3 0-6.05-2.25t-4.15-6.15q-5.2 8.4-13.1 8.4zm3.6-10.1q2.2 0 4.2-2.6t2.9-6.9l3.7-18.4q-4.2.1-7.75 3.15t-5.65 8.05q-2.1 5-2.1 10.6 0 3.1 1.25 4.6 1.25 1.5 3.45 1.5z"
+                            />
+                            <g fill-rule="evenodd">
+                                <path d="M60.31 128q-6.739-.971-12.152-4-4.578-2.701-7.758-8.569-3-5.224-3-13.401-.016-10.509 4.186-19.291 5.65-9.773 10.814-13.553 6.85-5.77 15.633-5.77 6.738 0 12.152 3.028 5.414 3.029 8.594 8.897 3.18 5.868 3.18 14.045 0 11.508-4.203 20.291-4.202 8.783-11.432 13.553Q69.093 128 60.31 128zm.757-8.934q5.906 0 10.411-3.635 4.505-3.634 6.928-10.107 2.423-6.474 2.423-14.651 0-9.01-3.786-13.667-3.786-4.656-9.767-4.656-5.318.511-9.297 4.596-4.1 2.89-7.579 9.054-3 6.49-3 14.743.114 9.01 3.9 13.666 3.786 4.657 9.767 4.657z"
+                                />
+                                <path d="M77.941 59.854q2.478-6.688 1.298-14.383C76.181 25.537 66.557 21.996 66.519 22c-.323.037-1.968 7.944-.909 17.414q1.17 7.974 4.543 14.386.297.564.588 1.103-1.616-1.487-3.55-3.114-6.552-5.509-15.461-8.869c-10.665-3.609-20.206-3.702-20.33-3.339-.014.043 1.649 12.044 23.888 20.597q10.022 3.854 19.719 1.607l.036.048c-.148 1.378-.283 2.645-.347 3.324l2.347.485c.004-.079.498-3.072.898-5.788zM52.4 51.789c-4.577-2.215-10.14-5.633-16-8.869q5.757 7.069 16.653 12.064c6.437 2.952 13.4 4.793 16.329 4.87q.357.329-16.982-8.065zm21.067-9.596c.909 4.012 1.686 8.868 2.857 14.57q.139-10.51-1.281-15.87c-.662-3.3-5.177-12.479-5.661-12.893q1.661 3.933 4.085 14.193z"
+                                />
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+
+
+                <div class="row pb-5">
+                    <div class="mb-5 col-12 col-md-6 col-lg-3">
+                        <h3 class="text-uppercase pb-4">Location</h3>
+                        <p>Upper Level</p>
+                        <p>Overseas Passenger Terminal,</p>
+                        <p>The Rocks, Sydney 2000</p>
+                        <p>phone: 02 9251 5600</p>
+                    </div>
+                    <div class="mb-5 col-12 col-md-6 col-lg-5">
+                        <h3 class="text-uppercase pb-4">Openning Hours</h3>
+
+                        <h4 class="text-uppercase mt-2">Lunch Service</h4>
+                        <p>Friday, Saturday and Sunday:</p>
+                        <p>Booking from 12pm, 1.30pm</p>
+
+                        <h4 class="text-uppercase mt-2">Dinner Service</h4>
+                        <p>Daily: Booking from 6pm - 9.30pm</p>
+
+                        <h4 class="text-uppercase mt-2">Functions & Events</h4>
+                        <p>Lunch: Monday to Sunday from 12pm</p>
+                        <p>Dinner: Monday to Sunday from 6pm</p>
+                    </div>
+                    <div class="mb-5 col-12 col-lg-4">
+                        <h3 class="text-uppercase pb-4">Sign up to recieve news from Olivia</h3>
+                        <p>Complete the form to receive information on the latest events,</p>
+                        <p> news and special offers at Quay.</p>
+
+                        <form class="mt-4">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                            </div>
+                            <button type="submit" class="btn btn-outline-light">Submit</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-copyright text-center position-absolute py-3">
+                <small>© 2018 Quay Restaurant. All rights reserved.</small>
+                <p>DESIGNED BY OPENSEED DIGITAL CONSULTANCY</p>
+            </div>
+
+        </footer>
+
+
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+    
+    <script src="./assets/js/main.js"></script>
+
+</body>
+
+</html>
